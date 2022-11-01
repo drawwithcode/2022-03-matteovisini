@@ -4,7 +4,7 @@ let numImg = 20;
 var changeImg = 1;
 
 //call menu or game
-var scr = "menu";
+let scr = "menu";
 
 //elements of the game
 var score = 0;
@@ -237,7 +237,8 @@ function draw() {
             speed =0
         }
 
-        if (mySong.currentTime() >= 250){
+        if (mySong.currentTime() >= 255){
+            
             retry(); 
         }
 
@@ -271,7 +272,7 @@ function draw() {
         textSize(45);
         push()
         noStroke();
-        textAlign(RIGHT)
+        textAlign(RIGHT);
         fill(255,255,255);
         text("SCORE", width-50, 50);
         text(score, width-50, 100);
@@ -280,7 +281,7 @@ function draw() {
 
     //media query for smartphone
     if (width <= 576) {
-        background(0)
+        background(0);
         smartphone();
     }
 }
@@ -289,11 +290,11 @@ function draw() {
 function menu() {
     textAlign(CENTER);
     textSize(25);
-    fill(255,255,255)
-    text ("LORD KNOWS, YOU CAN'T CHANGE…", width/2, height/2)
-    text ("BUT ARE YOU READY TO FLY HIGH?", width/2, height/2+30)
+    fill(255,255,255);
+    text ("LORD KNOWS, YOU CAN'T CHANGE…", width/2, height/2);
+    text ("BUT ARE YOU READY TO FLY HIGH?", width/2, height/2+30);
     rect(width/2, height/2+100, 400, 100);
-    fill(0,0,0)
+    fill(0,0,0);
     textSize(70);
     text("START", width/2, height/2+125);
 
@@ -302,9 +303,9 @@ function menu() {
         if (mouseY > height/2+50 && mouseY < height/2+150) {
             if (mouseIsPressed) {
                 scr = "game";
-                mySong.play()
+                mySong.play();
                 mouseX = 2000;
-                frameCount = 0
+                frameCount = 0;
                
             }
         }
@@ -313,35 +314,38 @@ function menu() {
 //function for the retry menu
 function retry() {
    push()
-    background(0)
+    background(0);
     textAlign(CENTER);
     textSize(25);
-    fill(255,255,255)
-    text ("YOUR SCORE IS", width/2, height/2-75)
+    fill(255,255,255);
+    text ("YOUR SCORE IS", width/2, height/2-75);
     textSize(120);
-    text (score, width/2, height/2+35)
+    text (score, width/2, height/2+35);
     textSize(25);
-    text ("YOU'RE TRULY A FREE BIRD…", width/2, height/2+100)
-    text ("BUT CAN YOU FLY HIGHER?", width/2, height/2+130)
+    text ("YOU'RE TRULY A FREE BIRD…", width/2, height/2+100);
+    text ("BUT CAN YOU FLY HIGHER?", width/2, height/2+130);
     rect(width/2, height/2+200, 400, 100);
-    fill(0,0,0)
+    fill(0,0,0);
     textSize(70);
     noStroke();
     text("RETRY", width/2, height/2+225);
+    pop()
   
     //button 
     if (mouseX > width/2-200 && mouseX < width/2+200) {
         if (mouseY > height/2+150 && mouseY < height/2+250) {
             if (mouseIsPressed) {
-                scr = "game";
+                mySong.jump(0)
                 mySong.play()
-                score = 0
                 mouseX = 2000;
+                frameCount = 0
+                score = 0
+                scr = "game";
                
             }
         }
     }
-pop()
+
 }
 
 //function for the media query  
@@ -360,6 +364,7 @@ function smartphone() {
 function drawGuitar(){
     push()
     fill(20,20,20);
+    noStroke();
     beginShape();
     vertex(width/2 - 130, height/2);
     vertex(width/2 + 130, height/2);
