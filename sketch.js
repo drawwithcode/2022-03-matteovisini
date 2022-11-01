@@ -351,7 +351,7 @@ function smartphone() {
     mySong.stop()
     textSize(120);
     text (":O",width/2, height/2+50)
-    textSize(25);
+    textSize(20);
     text ("YOU NEED SPACE AND A KEYBOARD", width/2, height/2+100)
     text ("TO FLY HIGH… TRY ON YOUR PC", width/2, height/2+130);
 }
